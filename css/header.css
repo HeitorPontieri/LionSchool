@@ -1,0 +1,15 @@
+header{
+    display: flex;
+}
+
+.header{
+    background-color: #3347B0;
+    width: 100vw;
+}
+.sair-container{
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
