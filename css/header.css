@@ -1,15 +1,36 @@
 header{
     display: flex;
+    flex-direction: column;
 }
 
 .header{
     background-color: #3347B0;
     width: 100vw;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
 }
-.sair-container{
-    width: 150px;
-    height: 50px;
+.logo-container{
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+}
+
+.logo-img{
+    display: flex;
+    width: 146px;
+    height: 75px;
+    justify-items: center;
+    
+   
+}
+.sair-img{
+    width: 124px;
+    height: 42.5px;
+    margin-right: 96px;
+}
+.sair-container{
+    display: flex;
+    align-items: center;
+    
+
 }

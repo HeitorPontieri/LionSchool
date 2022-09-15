@@ -12,3 +12,20 @@ var cursos = [
         "carga" :   "1200"
     }
 ];
+
+const getCurso = () =>{
+    let siglas = {}
+
+    cursos.forEach(item => {
+
+        siglas.push(item.sigla)
+        siglas.push(item.icone)
+
+        
+       
+    })
+
+    return siglas
+}
+
+console.log(getCurso())
