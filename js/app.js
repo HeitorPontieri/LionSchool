@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const {getCurso} = require('./cursos.js')
+const {getAlunos, getAlunoByMatricula} = require('./alunos.js')
 const { request, response } = require('express')
 
 const app = express()
@@ -22,6 +23,33 @@ app.get('/cursos', cors(),async function(request,response, next){
     if(cursos){
         response.status(200)
         response.json(cursos)
+    }
+    else{
+        response.status(404)
+        response.json('{message : " Nenhum item encontrado"}')
+    }
+})
+
+app.get('/alunos', cors(),async function(request,response, next){
+
+    let alunos = getAlunos()
+    if(alunos){
+        response.status(200)
+        response.json(alunos)
+    }
+    else{
+        response.status(404)
+        response.json('{message : " Nenhum item encontrado"}')
+    }
+})
+app.get('/alunos/:matricula', cors(),async function(request,response, next){
+
+    let matriculaAluno = request.params.matricula
+    let matricula = getAlunoByMatricula(matriculaAluno)
+
+    if(matricula){
+        response.status(200)
+        response.json(matricula)
     }
     else{
         response.status(404)
