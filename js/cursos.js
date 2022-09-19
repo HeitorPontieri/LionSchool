@@ -20,9 +20,6 @@ const getCurso = () =>{
 
         siglas.push(item.sigla)
         siglas.push(item.icone)
-
-        
-       
     })
 
     return siglas
