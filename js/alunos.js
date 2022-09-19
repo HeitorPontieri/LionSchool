@@ -705,9 +705,32 @@ const getAlunoByMatricula = (matriculaAluno) => {
    })
    return alun
 }
+const getDisciplina = (matriculaAluno) =>{
+    let matricula = matriculaAluno
+    let disciplina = []
+    let JSONBOND = {}
 
+    alunos.forEach(item =>{
+        if(item.matricula.indexOf(matricula)> -1){
+            item.curso.forEach(ite =>{
+                ite.disciplinas.forEach(it =>{
+                    disciplina.push({
+                        nome : it.nome,
+                        media : it.media,
+                        status : it.media
+                    })
+                    JSONBOND.foto = item.foto
+                    JSONBOND.nome = item.nome
+                    JSONBOND.disciplina = disciplina
+                })
+            })
+        }
+    })
+    return JSONBOND
+}
 
 module.exports=({
     getAlunos,
-    getAlunoByMatricula
+    getAlunoByMatricula,
+    getDisciplina
 })
