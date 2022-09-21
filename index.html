@@ -1,3 +1,12 @@
+<!-- /*
+
+Objetivo : Criar um site para busca de alunos
+autor : HeitorPontierii
+Data : 01/09/22
+Versão : 1.0
+
+*/ -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,7 +18,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/footer.css">
-
+    <link rel="shortcut icon" href="./imgs/logo-image.png">
+    <script src="./js/alunos.js" defer type="module"></script>
+    <script src="./js/cursos.js" defer type="module"></script>
+    <script src="./js/app.js" defer type="module"></script>
 
     <title>Lion School</title>
 </head>
@@ -21,7 +33,9 @@
                 <img src="./imgs/logo.png" alt="" class="logo-img">
             </div>
             <div class="sair-container">
-                <img src="./imgs/sair.png" alt="" class="sair-img">
+                <a href="https://ge.globo.com/" target="_blank">
+                    <img src="./imgs/sair.png" alt="" class="sair-img">
+                </a>
             </div>
         </div>
     </header>
@@ -41,6 +55,7 @@
                         para gerenciar
                     </p>
                 </div>
+                <button type="button"></button>
                 <div class="img-container-aparelhos">
                     <img src="./imgs/aparelhos.png" alt="" class="img-aparelhos">
                 </div>
@@ -48,14 +63,15 @@
             <div class="img-container-estudante">
                 <img src="./imgs/estudante.png" alt="" class="img-estudante">
             </div>
+            <div class="div-button-container"></div>
         </div>
     </main>
     <footer>
         <div class="footer">
             <div class="footr">
                 <div class="icones">
-                    <div class="icons" id="icon-telefone">
-                        <img src="./imgs/icon-telefone.png" alt="">
+                    <div class="icons" >
+                        <img src="./imgs/icon-telefone.png" alt="" id="icon-telefone">
                         <p class="texto-telefone" id="texto-telefone">(11) 4774-4700 </p>
                     </div>
                     <div class="icons">
@@ -64,7 +80,7 @@
                     </div>
                     <div class="icons">
                         <img src="./imgs/icon-local.png " alt="" id="icon-local">
-                        <p class="texto-local" id="texto-local">Rua tcc, 211, Centro, Jandira</p>
+                        <p class="texto-local" id="texto-local">Rua Tcc, 211, Centro, Jandira</p>
                     </div>
                 </div>
                 <div class="copyright">

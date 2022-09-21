@@ -1,3 +1,12 @@
+/*
+
+Objetivo : Buscar os alunos de diferentes maneiras
+autor : HeitorPontierii
+Data : 01/09/22
+Versão : 1.0
+
+*/
+
 var alunos = [
 
     {

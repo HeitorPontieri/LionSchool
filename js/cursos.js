@@ -1,3 +1,11 @@
+/*
+
+Objetivo : Filtrar os itens para criacao de botoes usando uma function
+autor : HeitorPontieri
+Data : 19/09/22
+Versão : 1.0
+
+*/
 var cursos = [
     {
         "nome": "001 - Técnico em Desenvolvimento de Sistemas",
@@ -25,6 +33,22 @@ const getCurso = () => {
     return siglas 
 }
 
+const criarButton = ()=>{
+    
+    const button = document.querySelector('button')
+    const div = document.createElement('div')
+    div.classList.add('div-button-container')
+    div.innerHTML = `
+        <button type="button">
+            ${getCurso}
+        </button> 
+    `
+    button.appendChild(div)
+}
+getCurso.forEach(criarButton)
+
+
 module.exports=({
-    getCurso
+    getCurso,
+    criarButton
 })
