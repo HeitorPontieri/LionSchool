@@ -36,8 +36,8 @@
     flex-direction:row; 
     margin-left: 64px;
 }
-.div-button-container{
-    color: white;
+.div-a-container{
+   
     background: #3347B0;
     border: 1px solid #000000;
     box-shadow: 12px 12px 4px rgba(51, 71, 176, 0.5);

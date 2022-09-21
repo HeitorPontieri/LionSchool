@@ -11,7 +11,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const {getCurso} = require('./cursos.js')
-const {getAlunos, getAlunoByMatricula} = require('./alunos.js')
+const {getAlunos, getAlunoByMatricula, getMatriculaByDisciplina} = require('./alunos.js')
 const { request, response } = require('express')
 
 const app = express()
@@ -65,6 +65,9 @@ app.get('/alunos/:matricula', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
+
+
+
 app.listen(8080, function(){
     console.log('Servidor aguardando requisições')
 })

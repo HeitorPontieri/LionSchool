@@ -737,9 +737,30 @@ const getDisciplina = (matriculaAluno) =>{
     })
     return JSONBOND
 }
+const getAlunoByStatus = (statusAluno) =>{
+    
+    let status = statusAluno
+    let disciplina = []
+    if(status.toUpperCase()== 'FINALIZADO'){
+            
+    }
+    alunos.forEach(item =>{
+        
+        
+        
+        
+        
+        // disciplina.push({
+        //     status : item.status
+        // })
+    })
+    // return disciplina
+    console.log('JAGABIUGJKA')
+}
 
 module.exports=({
     getAlunos,
     getAlunoByMatricula,
-    getDisciplina
+    getDisciplina,
+    getAlunoByStatus
 })
