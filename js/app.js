@@ -11,7 +11,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const {getCurso} = require('./cursos.js')
-const {getAlunos, getAlunoByMatricula, getMatriculaByDisciplina} = require('./alunos.js')
+const {getAlunos, getAlunoByMatricula, getAlunoByStatus, getAlunoByCurso, getDisciplina} = require('./alunos.js')
 const { request, response } = require('express')
 
 const app = express()
@@ -51,7 +51,7 @@ app.get('/alunos', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
-app.get('/alunos/?matricula', cors(),async function(request,response, next){
+app.get('/alunos/:matricula', cors(),async function(request,response, next){
 
     let matriculaAluno = request.params.matricula
     let matricula = getAlunoByMatricula(matriculaAluno)
@@ -65,6 +65,37 @@ app.get('/alunos/?matricula', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
+app.get('/alunos/disciplina/matricula/:matricula', cors(),async function(request,response, next){
+
+    let disciplinaByMatricula = request.params.matricula
+    let matricula = getDisciplina(disciplinaByMatricula)
+
+    if(matricula){
+        response.status(200)
+        response.json(matricula)
+    }
+    else{
+        response.status(404)
+        response.json('{message : " Nenhum item encontrado"}')
+    }
+}) 
+
+
+app.get('/alunos/status/:status', cors(),async function(request,response, next){
+
+    let statusAluno = request.params.status
+    let status = getAlunoByStatus(statusAluno)
+
+    if(status){
+        response.status(200)
+        response.json(status)
+    }
+    else{
+        response.status(404)
+        response.json('{message : " Nenhum item encontrado"}')
+    }
+})
+
 
 
 

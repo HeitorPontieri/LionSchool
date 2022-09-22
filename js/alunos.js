@@ -718,7 +718,6 @@ const getAlunoByMatricula = (matriculaAluno) => {
     let erro = true
 
     if (typeof (alunoMatricula) != undefined) {
-
         alunos.forEach(item => {
             if (item.matricula.indexOf(alunoMatricula) > -1) {
                 alun.push(item)
@@ -734,8 +733,8 @@ const getAlunoByMatricula = (matriculaAluno) => {
     }
 
 }
-const getDisciplina = (matriculaAluno) => {
-    let matricula = matriculaAluno
+const getDisciplina = (disciplinaByMatricula) => {
+    let matricula = disciplinaByMatricula
     let disciplina = []
     let JSONBOND = {}
     let erro = true
@@ -748,7 +747,8 @@ const getDisciplina = (matriculaAluno) => {
                         disciplina.push({
                             nome: it.nome,
                             media: it.media,
-                            status: it.media
+                            status: it.status,
+
                         })
                         JSONBOND.foto = item.foto
                         JSONBOND.nome = item.nome
@@ -792,30 +792,28 @@ const getAlunoByStatus = (statusAluno) => {
         return disciplina
     }
 
+
 }
 
-const getAlunoByCurso = (cursoAluno) =>{
+
+const getAlunoByCurso = (cursoAluno) => {
     let alunoCurso = cursoAluno
     let cursoArray = []
     let erro = true
 
-    alunos.forEach(item =>{
-        item.curso.forEach(i =>{
-            if(i.nome.indexOf(alunoCurso) > -1){
-                 cursoArray.push({
-                i
-             })
+    alunos.forEach(item => {
+        item.curso.forEach(i => {
+            if (i.nome.indexOf(alunoCurso) > -1) {
+                cursoArray.push({
+                    item
+                })
             }
         })
     })
-    if(erro){
-        return false
-    }
-    else{
-        return cursoAluno
-    }
+
+    return cursoAluno
 }
-console.log(getAlunoByCurso('RDS'))
+
 
 
 
@@ -823,5 +821,7 @@ module.exports = ({
     getAlunos,
     getAlunoByMatricula,
     getDisciplina,
-    getAlunoByStatus
+    getAlunoByStatus,
+    getAlunoByCurso
+
 })
