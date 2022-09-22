@@ -51,7 +51,7 @@ app.get('/alunos', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
-app.get('/alunos/:matricula', cors(),async function(request,response, next){
+app.get('/alunos/?matricula', cors(),async function(request,response, next){
 
     let matriculaAluno = request.params.matricula
     let matricula = getAlunoByMatricula(matriculaAluno)
@@ -65,6 +65,7 @@ app.get('/alunos/:matricula', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
+
 
 
 

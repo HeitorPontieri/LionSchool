@@ -36,5 +36,5 @@ const getCurso = () => {
 
 
 module.exports=({
-    getCurso,cursos
+    getCurso
 })

@@ -697,68 +697,129 @@ var alunos = [
 
 const getAlunos = () => {
     let alun = []
+    let erro = true
 
     alunos.forEach(item => {
         alun.push(item)
+        erro = false
     })
-    return alun
+
+    if (erro) {
+        return false
+    }
+
+    else {
+        return alun
+    }
 }
 const getAlunoByMatricula = (matriculaAluno) => {
     let alunoMatricula = matriculaAluno
     let alun = []
-    
-   alunos.forEach (item =>{
-        if(item.matricula.indexOf(alunoMatricula) > -1){
-            alun.push(item)
-        }
-   })
-   return alun
+    let erro = true
+
+    if (typeof (alunoMatricula) != undefined) {
+
+        alunos.forEach(item => {
+            if (item.matricula.indexOf(alunoMatricula) > -1) {
+                alun.push(item)
+                erro = false
+            }
+        })
+    }
+    if (erro) {
+        return false
+    }
+    else {
+        return alun
+    }
+
 }
-const getDisciplina = (matriculaAluno) =>{
+const getDisciplina = (matriculaAluno) => {
     let matricula = matriculaAluno
     let disciplina = []
     let JSONBOND = {}
+    let erro = true
 
-    alunos.forEach(item =>{
-        if(item.matricula.indexOf(matricula)> -1){
-            item.curso.forEach(ite =>{
-                ite.disciplinas.forEach(it =>{
-                    disciplina.push({
-                        nome : it.nome,
-                        media : it.media,
-                        status : it.media
+    if (typeof (matricula) != undefined) {
+        alunos.forEach(item => {
+            if (item.matricula.indexOf(matricula) > -1) {
+                item.curso.forEach(ite => {
+                    ite.disciplinas.forEach(it => {
+                        disciplina.push({
+                            nome: it.nome,
+                            media: it.media,
+                            status: it.media
+                        })
+                        JSONBOND.foto = item.foto
+                        JSONBOND.nome = item.nome
+                        JSONBOND.disciplina = disciplina
                     })
-                    JSONBOND.foto = item.foto
-                    JSONBOND.nome = item.nome
-                    JSONBOND.disciplina = disciplina
                 })
-            })
-        }
-    })
-    return JSONBOND
+                erro = false
+            }
+        })
+    }
+
+    if (erro) {
+        return false
+    }
+    else {
+        return JSONBOND
+    }
+
 }
-const getAlunoByStatus = (statusAluno) =>{
-    
+const getAlunoByStatus = (statusAluno) => {
+
     let status = statusAluno
     let disciplina = []
-    if(status.toUpperCase()== 'FINALIZADO'){
-            
-    }
-    alunos.forEach(item =>{
-        
-        
-        
-        
-        
-        // disciplina.push({
-        //     status : item.status
-        // })
+    let erro = true
+    alunos.forEach(item => {
+        if (item.status.indexOf(status) > -1) {
+            disciplina.push({
+                nome: item.nome,
+                foto: item.foto,
+                matricula: item.matricula,
+                status: item.status
+            })
+            erro = false
+        }
     })
-    // return disciplina
-    console.log('JAGABIUGJKA')
+
+    if (erro) {
+        return false
+    }
+    else {
+        return disciplina
+    }
+
 }
 
-module.exports=({
+const getAlunoByCurso = (cursoAluno) =>{
+    let alunoCurso = cursoAluno
+    let cursoArray = []
+    let erro = true
+
+    alunos.forEach(item =>{
+        item.curso.forEach(i =>{
+            if(i.nome.indexOf(alunoCurso) > -1){
+                 cursoArray.push({
+                i
+             })
+            }
+        })
+    })
+    if(erro){
+        return false
+    }
+    else{
+        return cursoAluno
+    }
+}
+console.log(getAlunoByCurso('RDS'))
+
+
+
+module.exports = ({
     getAlunos,
     getAlunoByMatricula,
     getDisciplina,
