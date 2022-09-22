@@ -95,6 +95,20 @@ app.get('/alunos/status/:status', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
+app.get('/alunos/curso/:curso', cors(),async function(request,response, next){
+
+    let cursoAluno = request.params.curso
+    let curso = getAlunoByCurso(cursoAluno)
+
+    if(curso){
+        response.status(200)
+        response.json(curso)
+    }
+    else{
+        response.status(404)
+        response.json('{message : " Nenhum item encontrado"}')
+    }
+})
 
 
 

@@ -32,7 +32,15 @@ const getCurso = () => {
     })
     return siglas 
 }
+const getNomeCurso = () => {
+    let nomes = []
 
+    cursos.forEach(item =>{
+        nomes.push({
+            nomeCurso : item.nome
+        })
+    })
+}
 
 
 module.exports=({

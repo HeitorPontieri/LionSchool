@@ -731,8 +731,8 @@ const getAlunoByMatricula = (matriculaAluno) => {
     else {
         return alun
     }
-
 }
+
 const getDisciplina = (disciplinaByMatricula) => {
     let matricula = disciplinaByMatricula
     let disciplina = []
@@ -803,16 +803,18 @@ const getAlunoByCurso = (cursoAluno) => {
 
     alunos.forEach(item => {
         item.curso.forEach(i => {
-            if (i.nome.indexOf(alunoCurso) > -1) {
-                cursoArray.push({
-                    item
-                })
+            if (i.sigla.indexOf(alunoCurso) > -1) {
+                cursoArray.push(
+                    item,
+                    i
+                )
             }
         })
     })
-
-    return cursoAluno
+    return cursoArray
 }
+
+
 
 
 
