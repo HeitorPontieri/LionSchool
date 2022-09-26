@@ -43,5 +43,13 @@
     border: 1px solid #000000;
     box-shadow: 12px 12px 4px rgba(51, 71, 176, 0.5);
 }
+.a-button{
+    text-decoration: none;
+    color: white;
+    background-color: aqua;
+}
+.img-button{
+    max-width: 40%;
+}
     
 

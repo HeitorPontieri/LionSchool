@@ -9,10 +9,11 @@ const criarButton = (varv)=>{
     const img =  document.createElement('img')
     img.src = varv.icone
     div.classList.add('div-container-button')
+    a.classList.add('a-button')
+    img.classList.add('img-button')
     a.textContent = varv.sigla
     a.href = './html/cards.html'
     a.classList.add('link')
-    
     div.appendChild(img)
     div.appendChild(a)
     return div
@@ -22,7 +23,8 @@ const carregarCard = async () =>{
     const dado = await getLinkCursos()
 
     const cardMap = dado.map(criarButton)
-    card.replaceChild(...cardMap)
+    //  card.replaceChild(...cardMap)
+     card.replaceWith(...cardMap)
 }
 carregarCard()
 
