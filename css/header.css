@@ -13,6 +13,7 @@ header{
 .logo-container{
     align-items: center;
     justify-content: center;
+    margin-left: 48px;
 }
 
 .logo-img{

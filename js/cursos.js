@@ -21,7 +21,7 @@ var cursos = [
     }
 ];
 
-const getCurso = (varv) => {
+const getCurso = () => {
     let siglas = []
 
     cursos.forEach(item => {
@@ -46,3 +46,7 @@ const getNomeCurso = () => {
 module.exports=({
     getCurso,getNomeCurso
 })
+
+exports = {
+    getCurso
+}

@@ -1,6 +1,6 @@
 'use strict'
 
-import cursos, { getCurso } from "./cursos"
+import  { getLinkCursos } from "./APi.js"
 
 const criarButton = (varv)=>{
     
@@ -13,15 +13,15 @@ const criarButton = (varv)=>{
     a.href = './html/cards.html'
     a.classList.add('link')
     
-    
+    div.appendChild(img)
     div.appendChild(a)
     return div
 }
 const carregarCard = async () =>{
     const card = document.getElementById('div-container-button')
-    const dado = await getCurso()
+    const dado = await getLinkCursos()
 
-    const cardMap = dado.
+    const cardMap = dado.map(criarButton)
     card.replaceChild(...cardMap)
 }
 carregarCard()
