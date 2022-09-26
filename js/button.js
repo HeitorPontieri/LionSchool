@@ -1,18 +1,32 @@
 'use strict'
 
-import { getCurso } from "./cursos"
+import cursos, { getCurso } from "./cursos"
 
-const criarButton = ()=>{
+const criarButton = (varv)=>{
     
     const a = document.createElement('a')
     const div = document.createElement('div')
-    div.classList.add('div-a-container')
+    const img =  document.createElement('img')
+    img.src = varv.icone
+    div.classList.add('div-container-button')
+    a.textContent = varv.sigla
+    a.href = './html/cards.html'
+    a.classList.add('link')
     
     
-    a.appendChild(div)
+    div.appendChild(a)
+    return div
 }
+const carregarCard = async () =>{
+    const card = document.getElementById('div-container-button')
+    const dado = await getCurso()
 
-
-exports={
-    criarButton
+    const cardMap = dado.
+    card.replaceChild(...cardMap)
 }
+carregarCard()
+
+document.querySelector('#div-container-button').addEventListener('click', (event)=>{
+    localStorage.setItem('curso', event.target.textContent)
+})
+
