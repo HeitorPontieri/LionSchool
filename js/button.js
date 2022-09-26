@@ -1,12 +1,12 @@
 'use strict'
 
-import  { getLinkCursos } from "./APi.js"
+import { getLinkCursos } from "./APi.js"
 
-const criarButton = (varv)=>{
-    
+const criarButton = (varv) => {
+
     const a = document.createElement('a')
     const div = document.createElement('div')
-    const img =  document.createElement('img')
+    const img = document.createElement('img')
     img.src = varv.icone
     div.classList.add('div-container-button')
     a.classList.add('a-button')
@@ -18,17 +18,17 @@ const criarButton = (varv)=>{
     div.appendChild(a)
     return div
 }
-const carregarCard = async () =>{
+const carregarCard = async () => {
     const card = document.getElementById('div-container-button')
     const dado = await getLinkCursos()
 
     const cardMap = dado.map(criarButton)
     //  card.replaceChild(...cardMap)
-     card.replaceWith(...cardMap)
+    card.replaceWith(...cardMap)
 }
 carregarCard()
 
-document.querySelector('#div-container-button').addEventListener('click', (event)=>{
+document.querySelector('#div-container-button').addEventListener('click', (event) => {
     localStorage.setItem('curso', event.target.textContent)
 })
 

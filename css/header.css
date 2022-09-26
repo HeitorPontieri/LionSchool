@@ -29,9 +29,12 @@ header{
     height: 42.5px;
     margin-right: 96px;
 }
-.sair-container{
+.sair-container {
     display: flex;
     align-items: center;
-    
-
+}
+.voltar-img{
+    width: 157px;
+    height: 42px;
+    margin-right:96px;
 }
