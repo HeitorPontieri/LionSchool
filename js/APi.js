@@ -14,6 +14,7 @@ const getLinkAlunoCurso = async() =>{
     return listaAlunos
 }
 
+
 export  {
     getLinkCursos,
     getLinkAlunoCurso
