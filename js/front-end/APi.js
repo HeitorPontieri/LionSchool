@@ -7,8 +7,8 @@ const getLinkCursos =  async() =>{
     return listaCursos
    
 }
-const getLinkAlunoCurso = async() =>{
-    const url = 'http://localhost:8080/alunos/curso/Sistemas'
+const getLinkAlunoCurso = async(curso) =>{
+    const url = `http://localhost:8080/alunos/curso/${curso}`
     const response = await fetch (url)
     const listaAlunos = await response.json()
     return listaAlunos

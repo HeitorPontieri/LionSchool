@@ -37,7 +37,7 @@ const carregarAlunos = async (curso) => {
     alunoContainer.id = 'aluno-container'
 
     alunoContainer.classList.add('aluno-container')
-    const dados = await getLinkAlunoCurso()
+    const dados = await getLinkAlunoCurso(curso)
     console.log(dados)
     
     const card = dados.curso.map(criarStudent)
