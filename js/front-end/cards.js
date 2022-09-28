@@ -29,16 +29,6 @@ const criarStudent = (varv) => {
     return a
 }
 
-const makeTitle = async (nome) =>{
-    const  func =  await getLinkCursos()
-
-    const title = document.createElement('h1')
-    
-    return func
-}
-
-
-
 const carregarAlunos = async (curso) => {
     const main = document.querySelector('main')
     const alunoContainer = document.createElement('div')

@@ -17,7 +17,7 @@ const getLinkAlunoCurso = async(curso) =>{
     const listaAlunos = await response.json()
     return listaAlunos
 }
-console.log(getLinkAlunoCurso(''))
+
 
 const getLinkAlunoStatus = async (status) => {
     const url = `http://localhost:8080/alunos/status/${status}`
