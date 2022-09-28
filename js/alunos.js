@@ -795,7 +795,6 @@ const getAlunoByStatus = (statusAluno) => {
 
 }
 
-
 const getAlunoByCurso = (cursoAluno) => {
     let alunoCurso = cursoAluno
     let cursoArray = []
@@ -813,10 +812,6 @@ const getAlunoByCurso = (cursoAluno) => {
     })
     return cursoArray
 }
-
-
-
-
 
 
 module.exports = ({
