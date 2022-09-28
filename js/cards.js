@@ -39,7 +39,6 @@ const criarTitle = (varv) => {
 
 const carregarAlunos = async (curso) => {
     const main = document.querySelector('main')
-
     const alunoContainer = document.createElement('div')
     alunoContainer.id = 'aluno-container'
     alunoContainer.classList.add('aluno-container')
