@@ -1,0 +1,36 @@
+.card-dados{
+   
+   display: flex;
+   width: 85%;
+   height: 60%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   color: white;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+.yellow-card{
+    width: 200px;
+    height: 300px;
+    background-color: #E5B657;
+    text-decoration: none;
+    
+}
+.blue-card{
+    background-color:  #3347B0;
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+}
+.alunos-card img{
+    
+}
+.aluno-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+
+}

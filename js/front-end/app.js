@@ -11,8 +11,8 @@ Versão : 1.0
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const {getCurso} = require('./cursos.js')
-const {getAlunos, getAlunoByMatricula, getAlunoByStatus, getAlunoByCurso, getDisciplina} = require('./alunos.js')
+const {getCurso} = require('../back-end/cursos.js')
+const {getAlunos, getAlunoByMatricula, getAlunoByStatus, getAlunoByCurso, getDisciplina} = require('../back-end/alunos.js')
 const { request, response } = require('express')
 
 const app = express()
@@ -100,10 +100,12 @@ app.get('/alunos/curso/:curso', cors(),async function(request,response, next){
 
     let cursoAluno = request.params.curso
     let curso = getAlunoByCurso(cursoAluno)
+    let cursoJSON = {}
 
     if(curso){
+        cursoJSON.curso = curso
         response.status(200)
-        response.json(curso)
+        response.json(cursoJSON)
     }
     else{
         response.status(404)

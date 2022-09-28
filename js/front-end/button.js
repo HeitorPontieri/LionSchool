@@ -23,7 +23,6 @@ const carregarCard = async () => {
     const dado = await getLinkCursos()
 
     const cardMap = dado.map(criarButton)
-    //  card.replaceChild(...cardMap)
     card.replaceWith(...cardMap)
 }
 carregarCard()

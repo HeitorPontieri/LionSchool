@@ -804,14 +804,29 @@ const getAlunoByCurso = (cursoAluno) => {
     alunos.forEach(item => {
         item.curso.forEach(i => {
             if (i.nome.indexOf(alunoCurso) > -1) {
-                cursoArray.push(
-                    item,
-                    i
-                )
+                cursoArray.push({
+                    foto : item.foto,
+                    nome : item.nome,
+                    status : item.status
+                })
             }
         })
     })
     return cursoArray
+}
+
+const getNomeCurso = (nomeCurso) => {
+    let cursoNome = nomeCurso
+    let nomeArray = []
+    
+    alunos.forEach(item =>{
+        item.curso.forEach(i =>{
+            nomeArray.push({
+                nome : i.nome
+            })
+        })
+
+    })
 }
 
 
@@ -824,6 +839,7 @@ module.exports = ({
     getAlunoByMatricula,
     getDisciplina,
     getAlunoByStatus,
-    getAlunoByCurso
+    getAlunoByCurso,
+    
 
 })

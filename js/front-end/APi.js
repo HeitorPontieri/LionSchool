@@ -8,12 +8,12 @@ const getLinkCursos =  async() =>{
    
 }
 const getLinkAlunoCurso = async() =>{
-    const url = 'http://localhost:8080/alunos/curso/:curso'
+    const url = 'http://localhost:8080/alunos/curso/Sistemas'
     const response = await fetch (url)
     const listaAlunos = await response.json()
     return listaAlunos
 }
-
+console.log(getLinkAlunoCurso('Sistemas'))
 
 export  {
     getLinkCursos,
