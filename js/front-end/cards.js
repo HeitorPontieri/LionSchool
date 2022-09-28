@@ -1,6 +1,6 @@
 'use strict'
 
-import { getLinkAlunoCurso } from "./APi.js"
+import { getLinkAlunoCurso, getLinkAlunoStatus }  from "./APi.js"
 
 const criarStudent = (varv) => {
     const a = document.createElement('a')
@@ -12,7 +12,6 @@ const criarStudent = (varv) => {
     span.textContent = varv.nome
     img.classList.add('card-dados')
     span.classList.add('card-dados')
-    
     a.id = varv.matricula
     a.href = '../html/notas.html'
 
@@ -42,52 +41,23 @@ const carregarAlunos = async (curso) => {
     
     const card = dados.curso.map(criarStudent)
     
-    
     alunoContainer.replaceChildren(...card)
-   
     main.appendChild(alunoContainer)
 
 }
+
 carregarAlunos(localStorage.getItem('curso'))
 
-document.getElementById('status').addEventListener('click', (event) => {
-    const yellowCard = document.querySelectorAll('.yellow-card')
-    const blueCard = document.querySelectorAll('.blue-card')
-
-    if (event.target.textContent == 'Finalizado') {
-        blueCard.forEach(item => {
-            item.classList.add('on')
-            item.classList.remove('off')
-
-        })
-        yellowCard.forEach(item => {
-            item.classList.add('off')
-            item.classList.remove('on')
-        })
+const carregarAlunoStatus = async (event) => {
+    
+    if(event.target.textContent == 'Status'){
+        carregarAlunos(localStorage.getItem('curso'))
     }
-
-    if (event.target.textContent == 'Cursando') {
-        blueCard.forEach(item => {
-            item.classList.add('off')
-            item.classList.remove('on')
-
-        })
-        yellowCard.forEach(item => {
-            item.classList.add('on')
-            item.classList.remove('off')
-        })
-        if (event.target.textContent == 'Status') {
-            blueCard.forEach(item => {
-                item.classList.add('on')
-                item.classList.remove('off')
-
-            })
-            yellowCard.forEach(item => {
-                item.classList.add('on')
-                item.classList.remove('off')
-            })
-            console.log(event.target)
-        }
+    else{
+        const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('curso'))
+        const alunoContainer = document.getElementById('alunos-container')
+        const card = dados.map(criarStudent)
+        alunoContainer.replaceChildren(...card)
     }
-
-})
+}
+document.getElementById('status').addEventListener('click', carregarAlunoStatus)

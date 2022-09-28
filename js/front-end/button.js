@@ -12,22 +12,23 @@ const criarButton = (varv) => {
     a.classList.add('a-button')
     img.classList.add('img-button')
     a.textContent = varv.sigla
-    // a.href = './html/cards.html'
+    a.href = './html/cards.html'
     a.classList.add('link')
     div.appendChild(img)
     div.appendChild(a)
     return div
 }
-const carregarCard = async () => {
+const carregarButton = async () => {
     const card = document.getElementById('div-container-button')
     const dado = await getLinkCursos()
 
     const cardMap = dado.map(criarButton)
     card.replaceWith(...cardMap)
 }
-carregarCard()
 
-document.querySelector('.a-button').addEventListener('click', (event) => {
+carregarButton()
+
+document.querySelector('#div-container-button').addEventListener('click', (event) => {
    console.log(event.target.textContent)
 })
 
