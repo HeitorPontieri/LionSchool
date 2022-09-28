@@ -27,14 +27,15 @@ const getCurso = () => {
     cursos.forEach(item => {
         siglas.push({
             sigla: item.sigla,
-            icone: item.icone
+            icone: item.icone,
+            nome: item.nome
+            
         })  
     })
     return siglas 
 }
 const getNomeCurso = () => {
     let nomes = []
-
     cursos.forEach(item =>{
         nomes.push({
             nomeCurso : item.nome
@@ -48,5 +49,6 @@ module.exports=({
 })
 
 exports = {
-    getCurso
+    getCurso,
+    getNomeCurso
 }

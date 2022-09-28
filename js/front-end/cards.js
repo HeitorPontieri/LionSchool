@@ -1,6 +1,6 @@
 'use strict'
 
-import { getLinkAlunoCurso, getLinkAlunoStatus }  from "./APi.js"
+import { getLinkAlunoCurso, getLinkAlunoStatus, getLinkCursos }  from "./APi.js"
 
 const criarStudent = (varv) => {
     const a = document.createElement('a')
@@ -11,7 +11,9 @@ const criarStudent = (varv) => {
     img.src = varv.foto
     span.textContent = varv.nome
     img.classList.add('card-dados')
+    img.classList.add('img-container')
     span.classList.add('card-dados')
+    span.classList.add('span-container')
     a.id = varv.matricula
     a.href = '../html/notas.html'
 
@@ -25,7 +27,14 @@ const criarStudent = (varv) => {
     a.appendChild(span)
 
     return a
+}
 
+const makeTitle = async (nome) =>{
+    const  func =  await getLinkCursos()
+
+    const title = document.createElement('h1')
+    
+    return func
 }
 
 
@@ -37,7 +46,7 @@ const carregarAlunos = async (curso) => {
 
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
-    console.log(dados)
+    
     
     const card = dados.curso.map(criarStudent)
     

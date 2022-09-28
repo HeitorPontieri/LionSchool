@@ -21,7 +21,6 @@ const criarButton = (varv) => {
 const carregarButton = async () => {
     const card = document.getElementById('div-container-button')
     const dado = await getLinkCursos()
-
     const cardMap = dado.map(criarButton)
     card.replaceWith(...cardMap)
 }

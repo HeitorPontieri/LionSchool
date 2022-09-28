@@ -11,7 +11,7 @@ Versão : 1.0
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const {getCurso} = require('../back-end/cursos.js')
+const {getCurso, getNomeCurso} = require('../back-end/cursos.js')
 const {getAlunos, getAlunoByMatricula, getAlunoByStatus, getAlunoByCurso, getDisciplina} = require('../back-end/alunos.js')
 const { request, response } = require('express')
 
@@ -110,6 +110,19 @@ app.get('/alunos/curso/:curso', cors(),async function(request,response, next){
     else{
         response.status(404)
         response.json('{message : " Nenhum item encontrado"}')
+    }
+})
+app.get('/alunos/nome/:nome', cors(), async function(request, response, next){
+    let nomeCurso = request.params.nome
+    let nome = getNomeCurso(nomeCurso)
+    
+    if(nome){
+        response.status(200)
+        response.json(nome)
+    }
+    else{
+        response.status(404)
+        response.json('{message : "Nenhum item encontrado"}')
     }
 })
 
