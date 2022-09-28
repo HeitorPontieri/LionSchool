@@ -11,7 +11,7 @@ const criarStudent = (varv) => {
     span.textContent = varv.nome
     img.classList.add('card-dados')
     span.classList.add('card-dados')
-    a.id = dados.matricula
+    a.id = varv.matricula
     a.href = '../html/notas'
 
     if (varv.status == 'Cursando') {
@@ -39,14 +39,12 @@ const criarTitle = (varv) => {
 
 const carregarAlunos = async (curso) => {
     const main = document.querySelector('main')
-
     const alunoContainer = document.createElement('div')
     alunoContainer.id = 'aluno-container'
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
     const card = dados.alunos.map(criarStudent)
     const titulo = criarTitle(data.alunos[0])
-
     alunoContainer.replaceWith(...card)
     main.appendChild(titulo)
     main.appendChild(alunoContainer)

@@ -8,7 +8,8 @@ footer{
 }
 .footer{
     background-color: #3347B0;
-    height: 15vh;
+    height: 20vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
