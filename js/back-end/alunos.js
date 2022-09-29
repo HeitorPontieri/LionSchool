@@ -792,7 +792,6 @@ const getAlunoByStatus = (statusAluno) => {
         return disciplina
     }
 
-
 }
 
 const getAlunoByCurso = (cursoAluno) => {
@@ -814,27 +813,12 @@ const getAlunoByCurso = (cursoAluno) => {
     return cursoArray
 }
 
-const getNomeCurso = (nomeCurso) => {
-    let cursoNome = nomeCurso
-    let nomeArray = []
-    
-    alunos.forEach(item =>{
-        item.curso.forEach(i =>{
-            nomeArray.push({
-                nome : i.nome
-            })
-        })
-
-    })
-}
-
-
 module.exports = ({
     getAlunos,
     getAlunoByMatricula,
     getDisciplina,
     getAlunoByStatus,
-    getAlunoByCurso,
+    getAlunoByCurso
     
 
 })

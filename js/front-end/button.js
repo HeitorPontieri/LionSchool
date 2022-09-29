@@ -12,7 +12,7 @@ const criarButton = (varv) => {
     a.classList.add('a-button')
     img.classList.add('img-button')
     a.textContent = varv.sigla
-    a.href = './html/cards.html'
+    //a.href = './html/cards.html'
     a.classList.add('link')
     div.appendChild(img)
     div.appendChild(a)
@@ -27,7 +27,8 @@ const carregarButton = async () => {
 
 carregarButton()
 
-document.querySelector('#div-container-button').addEventListener('click', (event) => {
-   console.log(event.target.textContent)
+document.querySelector('.div-container-button').addEventListener('click', (event) => {
+    console.log(event.target)
+//    localStorage.setItem('curso', event.target.textContent)
 })
 

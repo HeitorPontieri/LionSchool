@@ -9,10 +9,10 @@ const getLinkCursos =  async() =>{
 }
 const getLinkAlunoCurso = async(curso) =>{
     //  link certo
-    // const url = `http://localhost:8080/alunos/curso/${curso}`
+    const url = `http://localhost:8080/alunos/curso/${curso}`
     
     // Link pra conseguir fazer os cards
-    const url = `http://localhost:8080/alunos/curso/RDS`
+    // const url = `http://localhost:8080/alunos/curso/RDS`
     const response = await fetch (url)
     const listaAlunos = await response.json()
     return listaAlunos

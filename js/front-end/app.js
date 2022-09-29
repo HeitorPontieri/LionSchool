@@ -86,10 +86,12 @@ app.get('/alunos/status/:status', cors(),async function(request,response, next){
 
     let statusAluno = request.params.status
     let status = getAlunoByStatus(statusAluno)
+    let statusJSON = {}
 
     if(status){
+        statusJSON.status = status
         response.status(200)
-        response.json(status)
+        response.json(statusJSON)
     }
     else{
         response.status(404)

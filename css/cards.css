@@ -49,3 +49,43 @@
     width: 200px;
     height: 175px;
 }
+nav{
+    background-color: #BCC2E5;
+}
+.menu-legenda {
+    padding-top: 17px;
+    display: flex;
+    align-self: flex-start;
+}
+.legenda li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+}
+
+.legenda {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.menu-compacto{
+    padding-top: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3347B0;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    color: #3347B0;
+    font-size: 3rem;
+    font-weight: 400;
+
+}
+
+

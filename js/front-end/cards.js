@@ -53,10 +53,19 @@ const carregarAlunoStatus = async (event) => {
         carregarAlunos(localStorage.getItem('curso'))
     }
     else{
-        const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('curso'))
+        const dados = await getLinkAlunoStatus(event.target.textContent)
         const alunoContainer = document.getElementById('alunos-container')
-        const card = dados.map(criarStudent)
+        const card =  dados.map(criarStudent)
+        
         alunoContainer.replaceChildren(...card)
     }
 }
+
+document.getElementById('status').addEventListener('click', (event)=>{
+    console.log(event.target)
+    if(event.target.textContent == 'Status'){
+        carregarAlunos(localStorage.getItem('curso'))
+    }
+})
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
+
