@@ -36,8 +36,6 @@ const carregarAlunos = async (curso) => {
 
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
-    
-    
     const card = dados.curso.map(criarStudent)
     
     alunoContainer.replaceChildren(...card)
@@ -55,7 +53,7 @@ const carregarAlunoStatus = async (event) => {
     else{
         const dados = await getLinkAlunoStatus(event.target.textContent)
         const alunoContainer = document.getElementById('alunos-container')
-        const card =  dados.map(criarStudent)
+        const card =  dados.event.map(criarStudent)
         
         alunoContainer.replaceChildren(...card)
     }
