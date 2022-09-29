@@ -61,11 +61,11 @@ const carregarAlunoStatus = async (event) => {
     }
 }
 
-document.getElementById('status').addEventListener('click', (event)=>{
-    console.log(event.target)
+document.getElementById('status').addEventListener('click', (event)=>{ 
     if(event.target.textContent == 'Status'){
         carregarAlunos(localStorage.getItem('curso'))
     }
 })
+
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
 

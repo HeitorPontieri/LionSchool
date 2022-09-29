@@ -27,8 +27,7 @@ const carregarButton = async () => {
 
 carregarButton()
 
-document.querySelector('.div-container-button').addEventListener('click', (event) => {
-    console.log(event.target)
-//    localStorage.setItem('curso', event.target.textContent)
+document.querySelector('.div-container-button').addEventListener('click',(event) => {
+    localStorage.setItem('curso', event.target.textContent)
 })
 
