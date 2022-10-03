@@ -7,16 +7,19 @@ const criarButton = (varv) => {
     const a = document.createElement('a')
     const div = document.createElement('div')
     const img = document.createElement('img')
+    const p = document.createElement('p')
     img.src = varv.icone
     div.classList.add('div-container-button')
     a.classList.add('a-button')
     img.classList.add('img-button')
-    a.textContent = varv.sigla
-    //a.href = './html/cards.html'
+    p.textContent = varv.sigla
+    a.href = './html/cards.html'
     a.classList.add('link')
-    div.appendChild(img)
-    div.appendChild(a)
-    return div
+   
+    div.appendChild(img) 
+    div.appendChild(p)
+    a.appendChild(div)
+    return a
 }
 const carregarButton = async () => {
     const card = document.getElementById('div-container-button')
