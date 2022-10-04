@@ -43,7 +43,6 @@ const carregarAlunos = async (curso) => {
 
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
-    
     const card = dados.curso.map(criarStudent)
     
     alunoContainer.replaceChildren(...card)
@@ -66,4 +65,12 @@ const carregarAlunoStatus = async (event) => {
         alunoContainer.replaceChildren(...card)
     }
 }
+
+document.getElementById('status').addEventListener('click', (event)=>{ 
+    if(event.target.textContent == 'Status'){
+        carregarAlunos(localStorage.getItem('curso'))
+    }
+})
+
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
+
