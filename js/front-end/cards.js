@@ -6,17 +6,16 @@ const criarStudent = (varv) => {
     const a = document.createElement('a')
     const img = document.createElement('img')
     const span = document.createElement('span')
-   
     a.classList.add('alunos-card')
-    img.src = varv.foto
-    span.textContent = varv.nome
+    a.id = varv.matricula
+    a.href = '../html/notas.html'
     img.classList.add('card-dados')
     img.classList.add('img-container')
     span.classList.add('card-dados')
     span.classList.add('span-container')
-    a.id = varv.matricula
-    a.href = '../html/notas.html'
-
+    img.src = varv.foto
+    span.textContent = varv.nome
+    
     if (varv.status == 'Cursando') {
         a.classList.add('blue-card')
     }
@@ -28,6 +27,14 @@ const criarStudent = (varv) => {
 
     return a
 }
+// const criarTitulo = (varv) => {
+//     const h1 = document.createElement('h1')
+//     const split = varv.split('-')
+//     h1.textContent = split [1]
+
+//     return h1
+// }
+
 
 const carregarAlunos = async (curso) => {
     const main = document.querySelector('main')
@@ -37,11 +44,11 @@ const carregarAlunos = async (curso) => {
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
     
-    
     const card = dados.curso.map(criarStudent)
     
     alunoContainer.replaceChildren(...card)
     main.appendChild(alunoContainer)
+    
 
 }
 
@@ -54,7 +61,7 @@ const carregarAlunoStatus = async (event) => {
     }
     else{
         const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('curso'))
-        const alunoContainer = document.getElementById('alunos-container')
+        const alunoContainer = document.getElementById('aluno-container')
         const card = dados.map(criarStudent)
         alunoContainer.replaceChildren(...card)
     }
