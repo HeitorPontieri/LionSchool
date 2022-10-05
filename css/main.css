@@ -72,9 +72,10 @@ main {
     font-family: 'Roboto', sans-serif;
     font-size: 4rem;
     color: white;
-    background-color: aquamarine;
-    height: 400px;
-    width: 200px;
+   
+    height: 130px;
+    width: 150px;
+    
 }
 
 .img-button {

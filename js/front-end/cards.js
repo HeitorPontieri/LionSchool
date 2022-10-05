@@ -1,8 +1,11 @@
 'use strict'
 
-import { getLinkAlunoCurso, getLinkAlunoStatus, getLinkCursos }  from "./APi.js"
+import { getLinkAlunoCurso, getLinkAlunoStatus }  from "./APi.js"
+    // console.log('curso :',curso)
+    console.log(getLinkAlunoCurso('DS'))
 
 const criarStudent = (varv) => {
+
     const a = document.createElement('a')
     const img = document.createElement('img')
     const span = document.createElement('span')
@@ -24,7 +27,7 @@ const criarStudent = (varv) => {
     }
     a.appendChild(img)
     a.appendChild(span)
-
+    
     return a
 }
 // const criarTitulo = (varv) => {
@@ -37,42 +40,47 @@ const criarStudent = (varv) => {
 
 
 const carregarAlunos = async (curso) => {
+    
     const main = document.querySelector('main')
     const alunoContainer = document.createElement('div')
     alunoContainer.id = 'aluno-container'
 
     alunoContainer.classList.add('aluno-container')
-    const dados = await getLinkAlunoCurso(curso)
-    
+    const item = localStorage.getItem('sigla')
+    const dados = await getLinkAlunoCurso(item)
+   
     const card = dados.curso.map(criarStudent)
     
     alunoContainer.replaceChildren(...card)
     main.appendChild(alunoContainer)
     
-
 }
 
-carregarAlunos(localStorage.getItem('curso'))
+carregarAlunos()
 
 const carregarAlunoStatus = async (event) => {
     
     if(event.target.textContent == 'Status'){
-        carregarAlunos(localStorage.getItem('curso',event))
+        carregarAlunos(localStorage.getItem('sigla',event))
     }
     else{
-        const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('curso'))
+        const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('sigla'))
         const alunoContainer = document.getElementById('aluno-container')
-        const card = dados.map(criarStudent)
+        const card = dados.curso.map(criarStudent)
         alunoContainer.replaceChildren(...card)
     }
 }
 
 document.getElementById('status').addEventListener('click', (event)=>{ 
     if(event.target.textContent == 'Status'){
-        carregarAlunos(localStorage.getItem('curso'))
+        carregarAlunos(localStorage.getItem('sigla'))
     }
 })
 
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
 
-console.log(localStorage.getItem('curso'))
+document.getElementById('a').addEventListener('click',(event)=>{
+    localStorage.setItem('matricula', event.target.textContent)
+})
+
+

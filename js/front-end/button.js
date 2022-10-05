@@ -13,8 +13,8 @@ const criarButton = (varv) => {
     a.classList.add('a-button')
     img.classList.add('img-button')
     a.textContent = varv.sigla
-    // a.href = './html/cards.html'
-    a.href = '#'
+    a.href = './html/cards.html'
+    
     a.classList.add('link')
    
     div.appendChild(img) 
@@ -33,7 +33,7 @@ const carregarButton = async () => {
 carregarButton()
 
 document.getElementById('all-button').addEventListener('click',(event) => {
-   console.log ( localStorage.setItem( 'sigla', event.target.textContent))
+   console.log (localStorage.setItem('sigla', event.target.textContent))
     
 })
 

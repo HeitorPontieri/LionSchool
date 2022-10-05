@@ -730,6 +730,7 @@ const getAlunoByMatricula = (matriculaAluno) => {
     }
     else {
         return alun
+        
     }
 }
 
@@ -802,11 +803,14 @@ const getAlunoByCurso = (cursoAluno) => {
     alunos.forEach(item => {
         item.curso.forEach(i => {
             if (i.sigla.indexOf(alunoCurso) > -1) {
-                cursoArray.push({
+                if(i.sigla == cursoAluno){
+                    cursoArray.push({
                     foto : item.foto,
                     nome : item.nome,
-                    status : item.status
+                    status : item.status,
+                    matricula : item.matricula
                 })
+                }
             }
         })
     })
