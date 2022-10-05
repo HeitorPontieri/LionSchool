@@ -7,30 +7,33 @@ const criarButton = (varv) => {
     const a = document.createElement('a')
     const div = document.createElement('div')
     const img = document.createElement('img')
-    const p = document.createElement('p')
+    
     img.src = varv.icone
-    div.classList.add('div-container-button')
+    div.classList.add('container-button-JS')
     a.classList.add('a-button')
     img.classList.add('img-button')
-    p.textContent = varv.sigla
-    a.href = './html/cards.html'
+    a.textContent = varv.sigla
+    // a.href = './html/cards.html'
+    a.href = '#'
     a.classList.add('link')
    
     div.appendChild(img) 
-    div.appendChild(p)
-    a.appendChild(div)
-    return a
+    div.appendChild(a)
+    return div
+       
 }
+
 const carregarButton = async () => {
-    const card = document.getElementById('div-container-button')
+    const card = document.getElementById('all-button')
     const dado = await getLinkCursos()
     const cardMap = dado.map(criarButton)
-    card.replaceWith(...cardMap)
+    card.replaceChildren(...cardMap)
 }
 
 carregarButton()
 
-document.querySelector('.div-container-button').addEventListener('click',(event) => {
-    localStorage.setItem('curso', event.target.textContent)
+document.getElementById('all-button').addEventListener('click',(event) => {
+   console.log ( localStorage.setItem( 'sigla', event.target.textContent))
+    
 })
 

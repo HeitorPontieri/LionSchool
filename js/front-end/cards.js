@@ -43,6 +43,7 @@ const carregarAlunos = async (curso) => {
 
     alunoContainer.classList.add('aluno-container')
     const dados = await getLinkAlunoCurso(curso)
+    
     const card = dados.curso.map(criarStudent)
     
     alunoContainer.replaceChildren(...card)
@@ -56,7 +57,7 @@ carregarAlunos(localStorage.getItem('curso'))
 const carregarAlunoStatus = async (event) => {
     
     if(event.target.textContent == 'Status'){
-        carregarAlunos(localStorage.getItem('curso'))
+        carregarAlunos(localStorage.getItem('curso',event))
     }
     else{
         const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('curso'))
@@ -74,3 +75,4 @@ document.getElementById('status').addEventListener('click', (event)=>{
 
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
 
+console.log(localStorage.getItem('curso'))

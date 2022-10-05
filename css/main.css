@@ -55,7 +55,7 @@ main {
     gap: 50px;
 }
 
-.div-container-button {
+.container-button-JS{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -72,7 +72,9 @@ main {
     font-family: 'Roboto', sans-serif;
     font-size: 4rem;
     color: white;
-    
+    background-color: aquamarine;
+    height: 400px;
+    width: 200px;
 }
 
 .img-button {

@@ -19,7 +19,8 @@ const getLinkAlunoCurso = async (curso) => {
 }
 
 const getLinkAlunoStatus = async (status) => {
-    const url =`http://localhost:8080/alunos/status/${status}`
+    // const url =`http://localhost:8080/alunos/status/${status}`
+    const url =`http://localhost:8080/alunos/status/Cursando`
     const response = await fetch(url)
     const alunosStatus = response.json
     return alunosStatus
