@@ -33,6 +33,7 @@ const carregarButton = async () => {
 carregarButton()
 
 document.getElementById('all-button').addEventListener('click',(event) => {
+    
    console.log (localStorage.setItem('sigla', event.target.textContent))
     
 })

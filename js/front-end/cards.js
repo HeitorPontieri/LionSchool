@@ -1,9 +1,7 @@
 'use strict'
 
 import { getLinkAlunoCurso, getLinkAlunoStatus }  from "./APi.js"
-    // console.log('curso :',curso)
-    console.log(getLinkAlunoCurso('DS'))
-
+ 
 const criarStudent = (varv) => {
 
     const a = document.createElement('a')
@@ -11,7 +9,7 @@ const criarStudent = (varv) => {
     const span = document.createElement('span')
     a.classList.add('alunos-card')
     a.id = varv.matricula
-    a.href = '../html/notas.html'
+     a.href = '../html/notas.html'
     img.classList.add('card-dados')
     img.classList.add('img-container')
     span.classList.add('card-dados')
@@ -25,6 +23,7 @@ const criarStudent = (varv) => {
     if (varv.status == 'Finalizado') {
         a.classList.add('yellow-card')
     }
+
     a.appendChild(img)
     a.appendChild(span)
     
@@ -39,13 +38,18 @@ const criarStudent = (varv) => {
 // }
 
 
-const carregarAlunos = async (curso) => {
+const carregarAlunos = async () => {
     
     const main = document.querySelector('main')
     const alunoContainer = document.createElement('div')
     alunoContainer.id = 'aluno-container'
-
     alunoContainer.classList.add('aluno-container')
+    
+    
+    // alunoContainer.addEventListener('click', (event)=>{
+    //     localStorage.setItem('matricula', event.target.id)
+    // })
+    
     const item = localStorage.getItem('sigla')
     const dados = await getLinkAlunoCurso(item)
    
@@ -61,7 +65,7 @@ carregarAlunos()
 const carregarAlunoStatus = async (event) => {
     
     if(event.target.textContent == 'Status'){
-        carregarAlunos(localStorage.getItem('sigla',event))
+        carregarAlunos(localStorage.getItem('sigla', event))
     }
     else{
         const dados = await getLinkAlunoStatus(event.target.textContent,localStorage.getItem('sigla'))
@@ -76,11 +80,10 @@ document.getElementById('status').addEventListener('click', (event)=>{
         carregarAlunos(localStorage.getItem('sigla'))
     }
 })
-
 document.getElementById('status').addEventListener('click', carregarAlunoStatus)
 
-document.getElementById('a').addEventListener('click',(event)=>{
-    localStorage.setItem('matricula', event.target.textContent)
-})
 
 
+
+
+    

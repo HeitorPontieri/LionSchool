@@ -26,8 +26,23 @@ const getLinkAlunoStatus = async (status) => {
     return alunosStatus
 }
 
+const getLinkAlunoMatérias = async (matricula) =>{
+    const url = `http://localhost:8080/alunos/disciplina/matricula/${matricula}`
+    const response = await fetch(url)
+    const materiasStatus = response.json
+    return materiasStatus
+}
+const getLinkAlunoMatricula = async (matricula) => {
+    const url = `http://localhost:8080/alunos/${matricula}`
+    const response = await fetch(url)
+    const matriculasStatus = response.json
+    return matriculasStatus
+}
+
 export {
     getLinkCursos,
     getLinkAlunoCurso,
-    getLinkAlunoStatus
+    getLinkAlunoStatus,
+    getLinkAlunoMatérias,
+    getLinkAlunoMatricula 
 }
