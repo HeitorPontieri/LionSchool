@@ -39,6 +39,12 @@ const getLinkAlunoMatricula = async (matricula) => {
     return matriculasStatus
 }
 
+// const procuraPLaneta = (planeta)=>{
+//     let planeta = `${planeta} planet`
+
+//     return planeta
+// }
+
 export {
     getLinkCursos,
     getLinkAlunoCurso,

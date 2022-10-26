@@ -14,6 +14,7 @@ const bodyParser = require('body-parser')
 const {getCurso, getNomeCurso} = require('../back-end/cursos.js')
 const {getAlunos, getAlunoByMatricula, getAlunoByStatus, getAlunoByCurso, getDisciplina} = require('../back-end/alunos.js')
 const { request, response } = require('express')
+const netlifyRoutes = '/.netlify/functions/api/'
 
 const app = express()
 
@@ -27,7 +28,7 @@ app.use((request, response, next) => {
 
     next()
 })
-app.get('/cursos', cors(),async function(request,response, next){
+app.get('/.netlify/functions/api/alunos/:curso', cors(),async function(request,response, next){
 
     let cursos = getCurso()
     if(cursos){
@@ -98,7 +99,7 @@ app.get('/alunos/status/:status', cors(),async function(request,response, next){
         response.json('{message : " Nenhum item encontrado"}')
     }
 })
-app.get('/alunos/curso/:curso', cors(),async function(request,response, next){
+app.get('/.netlify/functions/api/alunos/:curso', cors(),async function(request,response, next){
 
     let cursoAluno = request.params.curso
     let curso = getAlunoByCurso(cursoAluno)
