@@ -19,8 +19,8 @@ const getLinkAlunoCurso = async (sigla) => {
 }
 
 const getLinkAlunoStatus = async (status) => {
-    // const url =`http://localhost:8080/alunos/status/${status}`
-    const url =`http://localhost:8080/alunos/status/Cursando`
+     const url =`http://localhost:8080/alunos/status/${status}`
+   // const url =`http://localhost:8080/alunos/status/Cursando`
     const response = await fetch(url)
     const alunosStatus = response.json
     return alunosStatus
@@ -38,6 +38,12 @@ const getLinkAlunoMatricula = async (matricula) => {
     const matriculasStatus = response.json
     return matriculasStatus
 }
+
+// const procuraPLaneta = (planeta)=>{
+//     let planeta = `${planeta} planet`
+
+//     return planeta
+// }
 
 export {
     getLinkCursos,
