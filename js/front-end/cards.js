@@ -80,7 +80,16 @@ document.getElementById('status').addEventListener('click', (event)=>{
         carregarAlunos(localStorage.getItem('sigla'))
     }
 })
-document.getElementById('status').addEventListener('click', carregarAlunoStatus)
+
+const carregarStatusCurso = async(event) =>{
+ const cardAzul = document.querySelector('.blue-card')
+ const cardAmarelo = document.querySelector('yellow-card')
+
+
+}
+
+
+
 
 
 
